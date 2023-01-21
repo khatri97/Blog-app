@@ -12,8 +12,5 @@
      UserDto getUserById(Integer userId);
      List<UserDto> getAllUsers();
      void deleteUser(Integer userId);
-     // public interface Object {
-     // }
-
 
  }

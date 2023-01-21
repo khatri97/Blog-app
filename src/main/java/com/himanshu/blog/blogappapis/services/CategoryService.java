@@ -2,10 +2,11 @@ package com.himanshu.blog.blogappapis.services;
 
 import com.himanshu.blog.blogappapis.entities.Category;
 import com.himanshu.blog.blogappapis.payloads.CategoryDto;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface CategoryRepo {
+public interface CategoryService {
 
     // Create
      CategoryDto createCategory(CategoryDto categoryDto);
@@ -20,5 +21,5 @@ public interface CategoryRepo {
     CategoryDto getCategory(Integer categoryId);
 
     //Get All
-    List<Category> getCategories();
+    List<CategoryDto> getCategories();
 }

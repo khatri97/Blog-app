@@ -10,6 +10,7 @@
  import com.himanshu.blog.blogappapis.services.UserService;
 
  import javax.persistence.criteria.CriteriaBuilder;
+ import javax.validation.Valid;
  import java.util.List;
 
  @RestController
@@ -21,7 +22,7 @@
 
       //POST method- create user
       @PostMapping("/user")
-      public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
+      public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
 
          UserDto createdUserDto= this.userService.createUser(userDto);
          return new ResponseEntity<>(createdUserDto,HttpStatus.CREATED);
@@ -29,7 +30,7 @@
 
      //PUT - Update user
       @PutMapping("/user/{userID}")
-      public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto, @PathVariable("userID") Integer uid){
+      public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto, @PathVariable("userID") Integer uid){
 
            UserDto updatedUser=  this.userService.updateUser(userDto,uid);
            return ResponseEntity.ok(updatedUser);

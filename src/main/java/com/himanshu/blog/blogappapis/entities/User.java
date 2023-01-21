@@ -1,15 +1,13 @@
  package com.himanshu.blog.blogappapis.entities;
 
- import javax.persistence.Column;
- import javax.persistence.Entity;
- import javax.persistence.GeneratedValue;
- import javax.persistence.GenerationType;
- import javax.persistence.Id;
- import javax.persistence.Table;
+ import javax.persistence.*;
 
  import lombok.Getter;
  import lombok.NoArgsConstructor;
  import lombok.Setter;
+
+ import java.util.ArrayList;
+ import java.util.List;
 
  @Entity
  @Table(name="users")
@@ -28,7 +26,7 @@
      private String name;
 
      @Column(name = "user_email", nullable = false, length = 100)
-     private String emial;
+     private String email;
 
      @Column(name = "user_password", nullable = false, length = 100)
      private String password;
@@ -36,5 +34,7 @@
      @Column(name = "about_user", nullable = false, length = 100)
      private String about;
 
+     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+     private List<Post> posts= new ArrayList<>();
     
  }
